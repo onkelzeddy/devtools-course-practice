@@ -89,7 +89,7 @@ TEST(Mironov_Nikita_ComplexNumberTest, div_works) {
 
 TEST(Mironov_Nikita_ComplexNumberTest, equality_works) {
     // Arrange
-    double re = 2.0, im = -1.0
+    double re = 2.0, im = -1.0;
     ComplexNumber a(re, im);
     ComplexNumber b(re, im);
 
