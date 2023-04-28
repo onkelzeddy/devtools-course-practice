@@ -9,8 +9,8 @@ TEST(Mironov_Nikita_ComplexNumberTest, zero_args_constructor_returns_zero) {
     ComplexNumber a;
 
     // Assert
-    EXPECT_DOUBLE_EQ((a.getRe()), 0.0);
-    EXPECT_DOUBLE_EQ((a.getIm()), 0.0);
+    EXPECT_DOUBLE_EQ(a.getRe(), 0.0);
+    EXPECT_DOUBLE_EQ(a.getIm(), 0.0);
 }
 
 TEST(Mironov_Nikita_ComplexNumberTest, constructor_with_args_works) {
@@ -33,9 +33,9 @@ TEST(Mironov_Nikita_ComplexNumberTest, divide_by_zero_is_prohibited) {
 
 TEST(Mironov_Nikita_ComplexNumberTest, sum_works) {
     // Arrange
-    ComplexNumber a(2.0, 3.1);
+    ComplexNumber a(3.0, 3.1);
     ComplexNumber b(2.0, 1.3);
-    ComplexNumber result, expect(4.0, 4.4);
+    ComplexNumber result, expect(5.0, 4.4);
 
     // Act
     result = a + b;
@@ -89,8 +89,9 @@ TEST(Mironov_Nikita_ComplexNumberTest, div_works) {
 
 TEST(Mironov_Nikita_ComplexNumberTest, equality_works) {
     // Arrange
-    ComplexNumber a(2.0, -1.0);
-    ComplexNumber b(2.0, -1.0);
+    double re = 2.0, im = -1.0
+    ComplexNumber a(re, im);
+    ComplexNumber b(re, im);
 
     // Assert & Act
     EXPECT_TRUE(a == b);
