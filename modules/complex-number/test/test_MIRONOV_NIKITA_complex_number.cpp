@@ -33,13 +33,13 @@ TEST(Mironov_Nikita_ComplexNumberTest, divide_by_zero_is_prohibited) {
 
 TEST(Mironov_Nikita_ComplexNumberTest, sum_works) {
     // Arrange
-    ComplexNumber first(3.0, 3.1);
-    ComplexNumber b(2.0, 1.3);
+    ComplexNumber firstSummand(3.0, 3.1);
+    ComplexNumber secondSummand(2.0, 1.3);
     ComplexNumber result;
     ComplexNumber expect(5.0, 4.4);
 
     // Act
-    result = a + b;
+    result = firstSummand + secondSummand;
 
     // Assert
     ASSERT_EQ(expect.getIm(), result.getIm());
