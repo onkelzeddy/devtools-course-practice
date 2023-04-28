@@ -75,9 +75,9 @@ TEST(Mironov_Nikita_ComplexNumberTest, mul_works) {
 
 TEST(Mironov_Nikita_ComplexNumberTest, div_works) {
     // Arrange
-    ComplexNumber a(3.0, 1.0);
-    ComplexNumber b(2.0, -1.0);
-    ComplexNumber result, expect(1, 1);
+    ComplexNumber a(-2.0, 1.0);
+    ComplexNumber b(1.0, -1.0);
+    ComplexNumber result, expect(-1.5, -0.5);
 
     // Act
     result = a / b;
