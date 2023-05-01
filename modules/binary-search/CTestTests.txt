@@ -1,0 +1,93 @@
+#############################################
+##### Testing
+#############################################
+
+set(prefix "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Run
+    COMMAND ${APPLICATION}
+)
+set_tests_properties (${prefix}_can_Run PROPERTIES
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Print_Help_Without_Arguments
+    COMMAND ${APPLICATION}
+)
+
+set_tests_properties (${prefix}_can_Print_Help_Without_Arguments PROPERTIES
+    PASS_REGULAR_EXPRESSION "This is a binary search application"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Check_Number_Of_Arguments
+    COMMAND ${APPLICATION} 1 2
+)
+set_tests_properties (${prefix}_can_Check_Number_Of_Arguments PROPERTIES
+    PASS_REGULAR_EXPRESSION "Should be at least 4 elements"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Detect_Wrong_Size_Format
+    COMMAND ${APPLICATION} 1 -2 1 2
+)
+set_tests_properties (${prefix}_can_Detect_Wrong_Size_Format PROPERTIES
+    PASS_REGULAR_EXPRESSION "Can't parse <array size>"
+    LABELS "${MODULE}")
+
+add_test(
+        NAME ${prefix}_can_Detect_Wrong_Array_Size
+        COMMAND ${APPLICATION} 1 100 1 2
+)
+set_tests_properties(${prefix}_can_Detect_Wrong_Array_Size PROPERTIES
+        PASS_REGULAR_EXPRESSION "Elements count doesn't match <array size>"
+        LABELS "${MODULE}")
+
+add_test(
+        NAME ${prefix}_can_Detect_Array_Not_Sorted
+        COMMAND ${APPLICATION} 1 2 5 2
+)
+set_tests_properties(${prefix}_can_Detect_Array_Not_Sorted PROPERTIES
+        PASS_REGULAR_EXPRESSION "Array is not sorted"
+        LABELS "${MODULE}")
+
+add_test(
+        NAME ${prefix}_Find_Element
+        COMMAND ${APPLICATION} 1 3 1 2 3
+)
+set_tests_properties(${prefix}_Find_Element PROPERTIES
+        PASS_REGULAR_EXPRESSION "0"
+        LABELS "${MODULE}")
+
+add_test(
+        NAME ${prefix}_Element_Not_Found
+        COMMAND ${APPLICATION} 6 3 1 2 3
+)
+set_tests_properties(${prefix}_Element_Not_Found PROPERTIES
+        PASS_REGULAR_EXPRESSION "not found"
+        LABELS "${MODULE}")
+
+add_test(
+        NAME ${prefix}_Can_Detect_Zero_Size
+        COMMAND ${APPLICATION} 6 0 1
+)
+set_tests_properties(${prefix}_Can_Detect_Zero_Size PROPERTIES
+        PASS_REGULAR_EXPRESSION "Array must be not empty"
+        LABELS "${MODULE}")
+
+add_test(
+        NAME ${prefix}_can_Detect_Wrong_Target_Format
+        COMMAND ${APPLICATION} a 2 1 2
+)
+set_tests_properties (${prefix}_can_Detect_Wrong_Target_Format PROPERTIES
+        PASS_REGULAR_EXPRESSION "Can't parse <search element>"
+        LABELS "${MODULE}")
+
+add_test(
+        NAME ${prefix}_can_Detect_Wrong_Array_Format
+        COMMAND ${APPLICATION} 1 2 a 2
+)
+set_tests_properties (${prefix}_can_Detect_Wrong_Array_Format PROPERTIES
+        PASS_REGULAR_EXPRESSION "Can't parse <array element>"
+        LABELS "${MODULE}")

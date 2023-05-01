@@ -1,0 +1,85 @@
+#############################################
+##### Testing
+#############################################
+
+set(prefix "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Run
+    COMMAND ${APPLICATION}
+)
+set_tests_properties (${prefix}_can_Run PROPERTIES
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Print_Help_Without_Arguments
+    COMMAND ${APPLICATION}
+)
+
+set_tests_properties (${prefix}_can_Print_Help_Without_Arguments PROPERTIES
+    PASS_REGULAR_EXPRESSION "This is a caesar cipher application"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Check_Number_Of_Arguments
+    COMMAND ${APPLICATION} 1 2
+)
+set_tests_properties (${prefix}_can_Check_Number_Of_Arguments PROPERTIES
+    PASS_REGULAR_EXPRESSION "Should be at least 4 elements"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Detect_Wrong_Operation
+    COMMAND ${APPLICATION} r 1 word
+)
+set_tests_properties (${prefix}_can_Detect_Wrong_Operation PROPERTIES
+    PASS_REGULAR_EXPRESSION "<op_type> must be only "
+    LABELS "${MODULE}")
+
+add_test(
+        NAME ${prefix}_can_Detect_Wrong_Text_Size
+        COMMAND ${APPLICATION} e 200 word
+)
+set_tests_properties(${prefix}_can_Detect_Wrong_Text_Size PROPERTIES
+        PASS_REGULAR_EXPRESSION "Elements count doesn't match <number of words>"
+        LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Detect_Wrong_Number_Of_Words
+    COMMAND ${APPLICATION} d -1 word
+)
+set_tests_properties (${prefix}_can_Detect_Wrong_Number_Of_Words PROPERTIES
+    PASS_REGULAR_EXPRESSION "Can't parse <number of words>"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Encode_One_Word
+    COMMAND ${APPLICATION} e 1 test
+)
+set_tests_properties (${prefix}_can_Encode_One_Word PROPERTIES
+    PASS_REGULAR_EXPRESSION "yjxy"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Decode_One_Word
+    COMMAND ${APPLICATION} d 1 yjxy
+)
+set_tests_properties (${prefix}_can_Decode_One_Word PROPERTIES
+    PASS_REGULAR_EXPRESSION "test"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Encode_Text
+    COMMAND ${APPLICATION} e 4 this is a test
+)
+set_tests_properties (${prefix}_can_Encode_Text PROPERTIES
+    PASS_REGULAR_EXPRESSION "ymnx nx f yjxy"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Decode_Text
+    COMMAND ${APPLICATION} d 4 ymnx nx f yjxy
+)
+set_tests_properties (${prefix}_can_Decode_Text PROPERTIES
+    PASS_REGULAR_EXPRESSION "this is a test"
+    LABELS "${MODULE}")

@@ -1,0 +1,43 @@
+CTest Ext configuration information:
+
+CTEST_EXT_VERSION                       : 0.7.1
+
+CTEST_PROJECT_NAME                      : devtools-course-practice
+
+CTEST_TARGET_SYSTEM                     : Windows-AMD64
+CTEST_MODEL                             : Experimental
+
+CTEST_SITE                              : MSI
+CTEST_BUILD_NAME                        : Windows-AMD64-Experimental
+
+CTEST_DASHBOARD_ROOT                    : C:/Users/aleks/OneDrive/Рабочий стол/devtools-course-practice/dashboard
+CTEST_SOURCE_DIRECTORY                  : C:/Users/aleks/OneDrive/Рабочий стол/devtools-course-practice
+CTEST_BINARY_DIRECTORY                  : C:/Users/aleks/OneDrive/Рабочий стол/devtools-course-practice/dashboard/build
+CTEST_NOTES_LOG_FILE                    : C:/Users/aleks/OneDrive/Рабочий стол/devtools-course-practice/dashboard/ctest_ext_notes_log.txt
+
+CTEST_WITH_UPDATE                       : FALSE
+GIT_CURRENT_BRANCH                      : Elistratov-Vladimir-lab2
+GIT_CURRENT_REVISION                    : 3fc1fbad2c4f566db882f2060d9f4117e2990154
+
+CTEST_UPDATE_CMAKE_CACHE                : TRUE
+CTEST_EMPTY_BINARY_DIRECTORY            : TRUE
+
+CTEST_CMAKE_GENERATOR                   : Visual Studio 16 2019
+CTEST_CONFIGURATION_TYPE                : Debug
+CTEST_INITIAL_CACHE                     : 
+CTEST_CMAKE_EXTRA_OPTIONS               : 
+CTEST_BUILD_FLAGS                       : 
+
+CTEST_WITH_TESTS                        : TRUE
+CTEST_TEST_TIMEOUT                      : 600
+
+CTEST_WITH_COVERAGE                     : FALSE
+
+CTEST_WITH_DYNAMIC_ANALYSIS             : FALSE
+
+CTEST_WITH_SUBMIT                       : FALSE
+
+CTEST_TRACK                             : Experimental
+CTEST_TMP_BASE_DIR                      : 
+CTEST_EXT_COLOR_OUTPUT                  : 
+

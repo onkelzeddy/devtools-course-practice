@@ -1,0 +1,108 @@
+#############################################
+##### Testing
+#############################################
+
+set(prefix "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Run
+    COMMAND ${APPLICATION}
+)
+set_tests_properties (${prefix}_can_Run PROPERTIES
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Print_Help_Without_Arguments
+    COMMAND ${APPLICATION}
+)
+set_tests_properties (${prefix}_can_Print_Help_Without_Arguments PROPERTIES
+    PASS_REGULAR_EXPRESSION "This is an integer stack application."
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Print_If_Stack_Is_Empty
+    COMMAND ${APPLICATION} e
+)
+set_tests_properties (${prefix}_can_Print_If_Stack_Is_Empty PROPERTIES
+    PASS_REGULAR_EXPRESSION "true"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Print_Size_Of_Empty_Stack
+    COMMAND ${APPLICATION} s
+)
+set_tests_properties (${prefix}_can_Print_Size_Of_Empty_Stack PROPERTIES
+    PASS_REGULAR_EXPRESSION "0"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Push_Elements
+    COMMAND ${APPLICATION} push 10 -5
+)
+set_tests_properties (${prefix}_can_Push_Elements PROPERTIES
+    PASS_REGULAR_EXPRESSION ""
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Print_If_Stack_Is_Not_Empty
+    COMMAND ${APPLICATION} push 10 -5 e
+)
+set_tests_properties (${prefix}_can_Print_If_Stack_Is_Not_Empty PROPERTIES
+    PASS_REGULAR_EXPRESSION "false"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Print_Size_Of_Non_Empty_Stack
+    COMMAND ${APPLICATION} push 10 -5 s
+)
+set_tests_properties (${prefix}_can_Print_Size_Of_Non_Empty_Stack PROPERTIES
+    PASS_REGULAR_EXPRESSION "2"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Print_Top_Element_Of_Non_Empty_Stack
+    COMMAND ${APPLICATION} push 10 -5 t
+)
+set_tests_properties (${prefix}_can_Print_Top_Element_Of_Non_Empty_Stack PROPERTIES
+    PASS_REGULAR_EXPRESSION "-5"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_cannot_Print_Top_Element_Of_Non_Empty_Stack
+    COMMAND ${APPLICATION} t
+)
+set_tests_properties (${prefix}_cannot_Print_Top_Element_Of_Non_Empty_Stack PROPERTIES
+    PASS_REGULAR_EXPRESSION "error: can't get top, stack is empty"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Pop_Element_Of_Non_Empty_Stack
+    COMMAND ${APPLICATION} push 10 -5 pop t
+)
+set_tests_properties (${prefix}_can_Pop_Element_Of_Non_Empty_Stack PROPERTIES
+    PASS_REGULAR_EXPRESSION "10"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_cannot_Pop_Element_Of_Non_Empty_Stack
+    COMMAND ${APPLICATION} pop
+)
+set_tests_properties (${prefix}_cannot_Pop_Element_Of_Non_Empty_Stack PROPERTIES
+    PASS_REGULAR_EXPRESSION "error: can't pop, stack is empty"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Clear_Stack
+    COMMAND ${APPLICATION} push 15 4 7 c s
+)
+set_tests_properties (${prefix}_can_Clear_Stack PROPERTIES
+    PASS_REGULAR_EXPRESSION "0"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Detect_Unknown_Key
+    COMMAND ${APPLICATION} 1
+)
+set_tests_properties (${prefix}_can_Detect_Unknown_Key PROPERTIES
+    PASS_REGULAR_EXPRESSION "error: unknown key 1"
+    LABELS "${MODULE}")

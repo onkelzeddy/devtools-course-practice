@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Site BuildName="Windows-AMD64-Experimental"
+	BuildStamp="20230501-1153-Experimental"
+	Name="MSI"
+	Generator="ctest-3.26.0-rc4"
+	CompilerName=""
+	CompilerVersion=""
+	OSName="Windows"
+	Hostname="MSI"
+	OSRelease=" Professional"
+	OSVersion=" (Build 22621)"
+	OSPlatform="AMD64"
+	Is64Bits="1"
+	VendorString="GenuineIntel"
+	VendorID="Intel Corporation"
+	FamilyID="6"
+	ModelID="14"
+	ProcessorCacheSize="-1"
+	NumberOfLogicalCPU="8"
+	NumberOfPhysicalCPU="4"
+	TotalVirtualMemory="22731"
+	TotalPhysicalMemory="16228"
+	LogicalProcessorsPerPhysical="2"
+	ProcessorClockFrequency="2400"
+	>
+	<Build>
+		<StartDateTime>May 01 14:53 RTZ 2 ([NON-UTF-8-BYTE-0xE7][NON-UTF-8-BYTE-0xE8][NON-UTF-8-BYTE-0xEC][NON-UTF-8-BYTE-0xE0])</StartDateTime>
+		<StartBuildTime>1682942033</StartBuildTime>
+		<BuildCommand>"C:\Program Files\CMake\bin\cmake.exe" --build . --config "Debug"</BuildCommand>
+		<Error>
+			<BuildLogLine>1</BuildLogLine>
+			<Text>CMake Error:</Text>
+			<PreContext></PreContext>
+			<PostContext>  Generator
+
+    Visual Studio 16 2019
+
+  could not find any instance of Visual Studio.
+
+
+
+</PostContext>
+			<RepeatCount>0</RepeatCount>
+		</Error>
+		<Warning>
+			<BuildLogLine>1</BuildLogLine>
+			<Text>*** WARNING non-zero return value in ctest from: C:\Program Files\CMake\bin\cmake.exe</Text>
+			<PreContext></PreContext>
+			<PostContext></PostContext>
+			<RepeatCount>0</RepeatCount>
+		</Warning>
+		<Log Encoding="base64" Compression="bin/gzip"/>
+		<EndDateTime>May 01 14:53 RTZ 2 ([NON-UTF-8-BYTE-0xE7][NON-UTF-8-BYTE-0xE8][NON-UTF-8-BYTE-0xEC][NON-UTF-8-BYTE-0xE0])</EndDateTime>
+		<EndBuildTime>1682942033</EndBuildTime>
+		<ElapsedMinutes>0</ElapsedMinutes>
+	</Build>
+</Site>
