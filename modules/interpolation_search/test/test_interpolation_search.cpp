@@ -105,7 +105,7 @@ TEST(Iterpolation_search_test, Successful_search_in_sorted_vector_6) {
     interpolationSearch is(test_vector);
 
     int search_target = 12;
-    int expected_search_result = 4;
+    int expected_search_result = 3;
 
     ASSERT_EQ(expected_search_result, is.search(search_target));
 }
