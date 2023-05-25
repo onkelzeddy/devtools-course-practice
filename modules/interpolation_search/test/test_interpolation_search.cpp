@@ -101,7 +101,9 @@ TEST(Iterpolation_search_test, Successful_search_in_sorted_vector_5) {
 
 TEST(Iterpolation_search_test, Successful_search_in_sorted_vector_6) {
     std::vector<int> test_vector =
-        {1, 2, 7, 12, 25, 27, 29, 30, 37, 42, 48, 53, 55, 57, 103, 112};
+        {1, 2, 7, 12, 25, 27, 29,
+        30, 37, 42, 48, 53, 55, 57,
+        103, 112, 240, 501};
     interpolationSearch is(test_vector);
 
     int search_target = 12;
