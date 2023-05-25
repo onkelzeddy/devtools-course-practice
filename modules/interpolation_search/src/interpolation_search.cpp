@@ -40,10 +40,6 @@ int interpolationSearch::search(int search_target) {
 
     while (target_vector[left_border] < search_target &&
         target_vector[right_border] > search_target) {
-        if (target_vector[right_border] == target_vector[left_border]) {
-            break;
-        }
-
         middle = left_border + ((search_target - target_vector[left_border]) *
             (right_border - left_border)) /
          (target_vector[right_border] - target_vector[left_border]);

@@ -79,6 +79,26 @@ TEST(Iterpolation_search_test, Successful_search_in_sorted_vector_3) {
     ASSERT_EQ(expected_search_result, is.search(search_target));
 }
 
+TEST(Iterpolation_search_test, Successful_search_in_sorted_vector_4) {
+    std::vector<int> test_vector = {1, 2, 7, 12, 25, 27, 29};
+    interpolationSearch is(test_vector);
+
+    int search_target = 29;
+    int expected_search_result = 6;
+
+    ASSERT_EQ(expected_search_result, is.search(search_target));
+}
+
+TEST(Iterpolation_search_test, Successful_search_in_sorted_vector_5) {
+    std::vector<int> test_vector = {27, 29};
+    interpolationSearch is(test_vector);
+
+    int search_target = 29;
+    int expected_search_result = 1;
+
+    ASSERT_EQ(expected_search_result, is.search(search_target));
+}
+
 TEST(Iterpolation_search_test, Successful_search_in_unsorted_vector) {
     std::vector<int> test_vector = {9, 1, 6, 2, 1, 7};
     interpolationSearch is(test_vector);
