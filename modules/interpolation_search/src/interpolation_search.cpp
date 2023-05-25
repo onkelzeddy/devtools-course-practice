@@ -68,10 +68,6 @@ int interpolationSearch::search(int search_target) {
 }
 
 void interpolationSearch::sort_target_vector() {
-    if (vector_size == 1) {
-        return;
-    }
-
     int i = 1;
     int j = 2;
     int tmp;
