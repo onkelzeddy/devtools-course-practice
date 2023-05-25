@@ -10,7 +10,6 @@ class interpolationSearch {
     explicit interpolationSearch(const std::vector<int>);
     void set_vector(const std::vector<int>);
     int search(const int);
-    ~interpolationSearch();
 
  private:
     std::vector<int> original_target_vector;
