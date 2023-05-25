@@ -1,0 +1,116 @@
+#############################################
+##### Testing
+#############################################
+
+set(prefix "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Run
+    COMMAND ${APPLICATION}
+)
+set_tests_properties (${prefix}_can_Run PROPERTIES
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Print_Help_Without_Arguments
+    COMMAND ${APPLICATION}
+)
+set_tests_properties (${prefix}_can_Print_Help_Without_Arguments PROPERTIES
+    PASS_REGULAR_EXPRESSION "ERROR: invalid number of arguments."
+    LABELS "${MODULE}")
+    
+add_test(
+    NAME ${prefix}_recognizes_error_when_entering_key
+    COMMAND ${APPLICATION} notnum 2 insert
+)
+set_tests_properties (${prefix}_recognizes_error_when_entering_key PROPERTIES
+    PASS_REGULAR_EXPRESSION "ERROR: Wrong key format!"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_recognizes_error_when_entering_value
+    COMMAND ${APPLICATION} 2 notnum insert
+)
+set_tests_properties (${prefix}_recognizes_error_when_entering_value PROPERTIES
+    PASS_REGULAR_EXPRESSION "ERROR: Wrong value format!"
+    LABELS "${MODULE}") 
+
+add_test(
+    NAME ${prefix}_recognizes_error_when_entering_operator
+    COMMAND ${APPLICATION} 2 3 wrong
+)
+set_tests_properties (${prefix}_recognizes_error_when_entering_operator PROPERTIES
+    PASS_REGULAR_EXPRESSION "ERROR: Wrong operator!"
+    LABELS "${MODULE}") 
+
+add_test(
+    NAME ${prefix}_can_insert
+    COMMAND ${APPLICATION} 2 3 insert
+)
+set_tests_properties (${prefix}_can_insert PROPERTIES
+    PASS_REGULAR_EXPRESSION "The element is inserted by the specified key"
+    LABELS "${MODULE}")     
+
+add_test(
+    NAME ${prefix}_can_not_insert
+    COMMAND ${APPLICATION} 2 3 insert 2 3 insert
+)
+set_tests_properties (${prefix}_can_not_insert PROPERTIES
+    PASS_REGULAR_EXPRESSION "There is already such an element"
+    LABELS "${MODULE}")     
+
+add_test(
+    NAME ${prefix}_can_delete_element_not_found
+    COMMAND ${APPLICATION} 5 6 delete
+)
+set_tests_properties (${prefix}_can_delete_element_not_found PROPERTIES
+    PASS_REGULAR_EXPRESSION "Record not found"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_delete_element
+    COMMAND ${APPLICATION} 2 3 insert 2 3 delete
+)
+set_tests_properties (${prefix}_can_delete_element PROPERTIES
+    PASS_REGULAR_EXPRESSION "The item has been deleted"
+    LABELS "${MODULE}")
+        
+add_test(
+    NAME ${prefix}_can_not_find_element
+    COMMAND ${APPLICATION} 5 6 find
+)
+set_tests_properties (${prefix}_can_not_find_element PROPERTIES
+    PASS_REGULAR_EXPRESSION "Record not found"
+    LABELS "${MODULE}")     
+
+add_test(
+    NAME ${prefix}_can_find_element
+    COMMAND ${APPLICATION} 2 3 insert 2 3 find
+)
+set_tests_properties (${prefix}_can_find_element PROPERTIES
+    PASS_REGULAR_EXPRESSION "Record found"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_find_out_size
+    COMMAND ${APPLICATION} 2 19 count
+)
+set_tests_properties (${prefix}_can_find_out_size PROPERTIES
+    PASS_REGULAR_EXPRESSION "1 records found"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_put_negative_values
+    COMMAND ${APPLICATION} -2 -3 insert
+)
+set_tests_properties (${prefix}_can_put_negative_values PROPERTIES
+    PASS_REGULAR_EXPRESSION "The element is inserted by the specified key"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_print_table
+    COMMAND ${APPLICATION} 2 5 print
+)
+set_tests_properties (${prefix}_can_print_table PROPERTIES
+    PASS_REGULAR_EXPRESSION "|5|2|"
+    LABELS "${MODULE}")

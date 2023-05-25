@@ -49,7 +49,6 @@ class hashmap {
     TabRecord* pMark;
     int FreePos;
 
-    hashmap();
     explicit hashmap(int Size_ = 40, int Step_ = 7);
     hashmap(const hashmap& Table_);
     ~hashmap() {}
@@ -78,7 +77,8 @@ class hashmap {
 
     friend std::ostream& operator<<(std::ostream& os, hashmap& tab) {
         for (tab.Reset(); !tab.IsTabEnded(); tab.GoNext()) {
-            os << "|\t" << *tab.GetData() << std::endl;
+            os << "|" << *tab.GetData() <<
+                "|" << tab.GetKey() << "|" << std::endl;
         }
         return os;
     }
