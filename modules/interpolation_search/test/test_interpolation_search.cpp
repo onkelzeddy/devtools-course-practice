@@ -25,7 +25,7 @@ TEST(Iterpolation_search_test, You_can_not_set_new_empty_vector) {
     std::vector<int> test_vector = {1, 3, 5, 8};
     interpolationSearch is(test_vector);
 
-    std::vector<int> empty_test_vector;
+    std::vector<int> empty_test_vector = {};
     ASSERT_NO_THROW(is.set_vector(empty_test_vector));
 }
 
