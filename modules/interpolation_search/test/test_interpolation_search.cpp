@@ -101,11 +101,11 @@ TEST(Iterpolation_search_test, Successful_search_in_sorted_vector_5) {
 
 TEST(Iterpolation_search_test, Successful_search_in_sorted_vector_6) {
     std::vector<int> test_vector =
-        {1, 2, 7, 12, 25, 27, 29, 30, 37, 42, 48, 53, 55};
+        {1, 2, 7, 12, 25, 27, 29, 30, 37, 42, 48, 53, 55, 57};
     interpolationSearch is(test_vector);
 
-    int search_target = 42;
-    int expected_search_result = 9;
+    int search_target = 37;
+    int expected_search_result = 8;
 
     ASSERT_EQ(expected_search_result, is.search(search_target));
 }
