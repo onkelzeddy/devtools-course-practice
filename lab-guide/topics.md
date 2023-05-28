@@ -48,7 +48,7 @@
 | Модифицированный стек |||
 | АВЛ деревья |Ермолаев Д. 382003_3|Ларин К. 382003_3|
 | RB деревья |Силаева Н. 382008-1|Быкова А. 382008-3|
-| Множества |Уваркин И. 382008-1||
+| Множества |Уваркин И. 382008-1|Миронов Н.В. 382008-3|
 | Priority queue | Зорин О.А. 382003_3 |Семенова В. 382003_3|
 | d-куча |Быкова А. 382008-3|Силаева Н. 382008-1|
 | hashmap |Шипилов А. 382003_3|Еремин А.Н. 382003_3|
@@ -88,7 +88,7 @@
 
 | Тема | ЛР#2 | ЛР#3 |
 |---|---|---|
-| [Игра "Жизнь" Конвея](https://github.com/garora/TDD-Katas/blob/master/KatasReadme.md#game-of-life-) ||Миронов Н.В. 382008-3|
+| [Игра "Жизнь" Конвея](https://github.com/garora/TDD-Katas/blob/master/KatasReadme.md#game-of-life-) |||
 | [Правило 30](https://en.wikipedia.org/wiki/Rule_30) |||
 | [Вычисление скидок на книги](https://github.com/garora/TDD-Katas/blob/master/KatasReadme.md#harry-potter-) |||
 | [Перевод чисел в их словесное написание на английском](http://codingdojo.org/kata/NumbersInWords/) |||
