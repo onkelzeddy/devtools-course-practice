@@ -48,8 +48,8 @@ int interpolationSearch::search(int search_target) {
 
         if (target_vector[middle] < search_target) {
             left_border = middle + 1;
-        }
-        else { if (target_vector[middle] > search_target) {
+        } else { 
+            if (target_vector[middle] > search_target) {
                 right_border = middle - 1;
             } else {
                 return middle;
@@ -94,7 +94,6 @@ void interpolationSearch::sort_target_vector() {
 }
 
 bool interpolationSearch::target_vector_is_sorted() {
-
     for (int i = 0; i < vector_size - 1; i++) {
         if (target_vector[i] > target_vector[i+1]) {
             return false;
