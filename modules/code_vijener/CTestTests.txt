@@ -8,6 +8,7 @@ add_test(
     NAME ${prefix}_can_Run
     COMMAND ${APPLICATION}
 )
+
 set_tests_properties (${prefix}_can_Run PROPERTIES
     LABELS "${MODULE}")
 
@@ -17,37 +18,46 @@ add_test(
 )
 
 set_tests_properties (${prefix}_can_Print_Help_Without_Arguments PROPERTIES
-    PASS_REGULAR_EXPRESSION "This is a code vijener app"
+    PASS_REGULAR_EXPRESSION "This is a complex code vijener application"
     LABELS "${MODULE}")
 
 add_test(
     NAME ${prefix}_can_Check_Number_Of_Arguments
-    COMMAND ${APPLICATION} asd qwe
+    COMMAND ${APPLICATION} student cat
 )
 set_tests_properties (${prefix}_can_Check_Number_Of_Arguments PROPERTIES
     PASS_REGULAR_EXPRESSION "ERROR: Should be 3 arguments."
     LABELS "${MODULE}")
 
 add_test(
-    NAME ${prefix}_can_Detect_Wrong_Arg_Format
-    COMMAND ${APPLICATION} asd 1-1 aaa
+    NAME ${prefix}_can_Detect_Wrong_Argument_Format
+    COMMAND ${APPLICATION} encode st222e2 c2c
 )
-set_tests_properties (${prefix}_can_Detect_Wrong_Arg_Format PROPERTIES
-    PASS_REGULAR_EXPRESSION "Wrong argument format!"
+
+set_tests_properties (${prefix}_can_Detect_Wrong_Argument_Format PROPERTIES
+    PASS_REGULAR_EXPRESSION "ERROR: should be English characters only."
     LABELS "${MODULE}")
 
 add_test(
-    NAME ${prefix}_can_Encode
-    COMMAND ${APPLICATION} cat student 1
+    NAME ${prefix}_can_Detect_Wrong_Operation_Format
+    COMMAND ${APPLICATION} wrong_operation student cat
 )
-set_tests_properties (${prefix}_can_Encode PROPERTIES
-    PASS_REGULAR_EXPRESSION "after encoder = UTNFEGV"
+set_tests_properties (${prefix}_can_Detect_Wrong_Operation_Format PROPERTIES
+    PASS_REGULAR_EXPRESSION "ERROR: Possible operations only encode or decode."
     LABELS "${MODULE}")
 
 add_test(
-    NAME ${prefix}_can_Decoder
-    COMMAND ${APPLICATION} cat UTNFEGV 2
+    NAME ${prefix}_can_encode
+    COMMAND ${APPLICATION} encode student cat
 )
-set_tests_properties (${prefix}_can_Decoder PROPERTIES
-    PASS_REGULAR_EXPRESSION "after Decoder = STUDENT"
+set_tests_properties (${prefix}_can_encode PROPERTIES
+    PASS_REGULAR_EXPRESSION "UTNFEGV"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_decode
+    COMMAND ${APPLICATION} decode UTNFEGV cat
+)
+set_tests_properties (${prefix}_can_decode PROPERTIES
+    PASS_REGULAR_EXPRESSION "STUDENT"
     LABELS "${MODULE}")

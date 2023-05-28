@@ -1,0 +1,148 @@
+#############################################
+##### Testing
+#############################################
+
+set(prefix "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Run
+    COMMAND ${APPLICATION}
+)
+set_tests_properties (${prefix}_can_Run PROPERTIES
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Print_Help_Without_Arguments
+    COMMAND ${APPLICATION}
+)
+set_tests_properties (${prefix}_can_Print_Help_Without_Arguments PROPERTIES
+    PASS_REGULAR_EXPRESSION "This applicaion prints prime numbers from given interval."
+    LABELS "${MODULE}")
+    
+add_test(
+    NAME ${prefix}_can_Detect_Less_Than_2_Arguments
+    COMMAND ${APPLICATION} first_arg
+)
+set_tests_properties (${prefix}_can_Detect_Less_Than_2_Arguments PROPERTIES
+    PASS_REGULAR_EXPRESSION "ERROR: Should be 2 arguments."
+    LABELS "${MODULE}")
+    
+add_test(
+    NAME ${prefix}_can_Detect_More_Than_2_Arguments
+    COMMAND ${APPLICATION} first_arg second_arg third_arg
+)
+set_tests_properties (${prefix}_can_Detect_More_Than_2_Arguments PROPERTIES
+    PASS_REGULAR_EXPRESSION "ERROR: Should be 2 arguments."
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Detect_Incorrect_Arguments
+    COMMAND ${APPLICATION} not_a_number_1 not_a_number_2
+)
+set_tests_properties (${prefix}_can_Detect_Incorrect_Arguments PROPERTIES
+    PASS_REGULAR_EXPRESSION "Wrong number format!"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Detect_Incorrect_Arguments_1
+    COMMAND ${APPLICATION} not_a_number_1 not_a_number_2
+)
+set_tests_properties (${prefix}_can_Detect_Incorrect_Arguments_1 PROPERTIES
+    PASS_REGULAR_EXPRESSION "Wrong number format!"
+    LABELS "${MODULE}")
+    
+add_test(
+    NAME ${prefix}_can_Detect_Incorrect_Arguments_2
+    COMMAND ${APPLICATION} 0 not_a_number
+)
+set_tests_properties (${prefix}_can_Detect_Incorrect_Arguments_2 PROPERTIES
+    PASS_REGULAR_EXPRESSION "Wrong number format!"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Detect_Incorrect_Arguments_3
+    COMMAND ${APPLICATION} not_a_number 1
+)
+set_tests_properties (${prefix}_can_Detect_Incorrect_Arguments_3 PROPERTIES
+    PASS_REGULAR_EXPRESSION "Wrong number format!"
+    LABELS "${MODULE}")
+    
+add_test(
+    NAME ${prefix}_can_Detect_Incorrect_Arguments_4
+    COMMAND ${APPLICATION} 1.0 3.0
+)
+set_tests_properties (${prefix}_can_Detect_Incorrect_Arguments_4 PROPERTIES
+    PASS_REGULAR_EXPRESSION "Wrong number format!"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Detect_Negative_Borders_1
+    COMMAND ${APPLICATION} -1 -2
+)
+set_tests_properties (${prefix}_can_Detect_Negative_Borders_1 PROPERTIES
+    PASS_REGULAR_EXPRESSION "Borders must be positive integers!"
+    LABELS "${MODULE}")
+    
+add_test(
+    NAME ${prefix}_can_Detect_Negative_Borders_2
+    COMMAND ${APPLICATION} -1 3
+)
+set_tests_properties (${prefix}_can_Detect_Negative_Borders_2 PROPERTIES
+    PASS_REGULAR_EXPRESSION "Borders must be positive integers!"
+    LABELS "${MODULE}")
+    
+add_test(
+    NAME ${prefix}_can_Detect_Negative_Borders_3
+    COMMAND ${APPLICATION} 0 -1
+)
+set_tests_properties (${prefix}_can_Detect_Negative_Borders_3 PROPERTIES
+    PASS_REGULAR_EXPRESSION "Borders must be positive integers!"
+    LABELS "${MODULE}")
+    
+add_test(
+    NAME ${prefix}_can_Detect_Right_Less_Than_Left
+    COMMAND ${APPLICATION} 1 0
+)
+set_tests_properties (${prefix}_can_Detect_Right_Less_Than_Left PROPERTIES
+    PASS_REGULAR_EXPRESSION "Left border is greater than right border!"
+    LABELS "${MODULE}")
+    
+add_test(
+    NAME ${prefix}_can_Detect_Integer_Overflow
+    COMMAND ${APPLICATION} 3 200000000000
+)
+set_tests_properties (${prefix}_can_Detect_Integer_Overflow PROPERTIES
+    PASS_REGULAR_EXPRESSION "Border is very big!"
+    LABELS "${MODULE}")
+    
+add_test(
+    NAME ${prefix}_can_Output_Correct_Answer_1
+    COMMAND ${APPLICATION} 0 1
+)
+set_tests_properties (${prefix}_can_Output_Correct_Answer_1 PROPERTIES
+    PASS_REGULAR_EXPRESSION "Primes from the interval \\[0, 1\\]: "
+    LABELS "${MODULE}")
+    
+add_test(
+    NAME ${prefix}_can_Output_Correct_Answer_2
+    COMMAND ${APPLICATION} 2 2
+)
+set_tests_properties (${prefix}_can_Output_Correct_Answer_2 PROPERTIES
+    PASS_REGULAR_EXPRESSION "Primes from the interval \\[2, 2\\]: 2 "
+    LABELS "${MODULE}")
+    
+add_test(
+    NAME ${prefix}_can_Output_Correct_Answer_3
+    COMMAND ${APPLICATION} 2 11
+)
+set_tests_properties (${prefix}_can_Output_Correct_Answer_3 PROPERTIES
+    PASS_REGULAR_EXPRESSION "Primes from the interval \\[2, 11\\]: 2 3 5 7 11 "
+    LABELS "${MODULE}")
+    
+add_test(
+    NAME ${prefix}_can_Output_Correct_Answer_4
+    COMMAND ${APPLICATION} 561 561
+)
+set_tests_properties (${prefix}_can_Output_Correct_Answer_4 PROPERTIES
+    PASS_REGULAR_EXPRESSION "Primes from the interval \\[561, 561\\]: "
+    LABELS "${MODULE}")
