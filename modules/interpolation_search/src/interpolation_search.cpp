@@ -2,7 +2,8 @@
 
 #include "include/interpolation_search.h"
 
-interpolationSearch::interpolationSearch(const std::vector<int> new_target_vector) {
+interpolationSearch::interpolationSearch(const std::vector<int>
+ new_target_vector) {
     if (new_target_vector.empty()) {
         throw("Vector can't be empty.");
     }
@@ -35,7 +36,8 @@ int interpolationSearch::search(int search_target) {
         sort_target_vector();
     }
 
-    while (target_vector[left_border] < search_target && target_vector[right_border] > search_target) {
+    while (target_vector[left_border] < search_target &&
+     target_vector[right_border] > search_target) {
         if (target_vector[right_border] == target_vector[left_border]) {
             break;
         }
@@ -47,12 +49,12 @@ int interpolationSearch::search(int search_target) {
         if (target_vector[middle] < search_target) {
             left_border = middle + 1;
         }
-        else if (target_vector[middle] > search_target) {
-            right_border = middle - 1;
-        } else {
-            return middle;
+        else { if (target_vector[middle] > search_target) {
+                right_border = middle - 1;
+            } else {
+                return middle;
+            }
         }
-        
     }
 
     if (target_vector[left_border] == search_target) {
