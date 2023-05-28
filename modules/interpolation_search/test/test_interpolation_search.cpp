@@ -26,7 +26,7 @@ TEST(Iterpolation_search_test, You_can_not_set_new_empty_vector) {
     interpolationSearch is(test_vector);
 
     std::vector<int> empty_test_vector;
-    ASSERT_NO_THROW(is.set_vector(empty_test_vector));
+    ASSERT_ANY_THROW(is.set_vector(empty_test_vector));
 }
 
 TEST(Iterpolation_search_test, Search_in_sorted_vector) {
@@ -133,7 +133,7 @@ TEST(Iterpolation_search_test, Search_in_sorted_mixed_vector) {
     std::vector<int> test_vector = {-5, -4, -3, -2, -1, 1, 2, 12, 23};
     interpolationSearch is(test_vector);
 
-    int search_target = 23;
+    int search_target = 25;
     int expected_search_result = -1;
 
     ASSERT_EQ(expected_search_result, is.search(search_target));
