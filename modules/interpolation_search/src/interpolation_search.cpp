@@ -48,7 +48,7 @@ int interpolationSearch::search(int search_target) {
 
         if (target_vector[middle] < search_target) {
             left_border = middle + 1;
-        } else { 
+        } else {
             if (target_vector[middle] > search_target) {
                 right_border = middle - 1;
             } else {
