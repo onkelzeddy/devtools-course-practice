@@ -89,8 +89,8 @@ TEST(Iterpolation_search_test, Successful_search_in_one_element_vector) {
     ASSERT_EQ(expected_search_result, is.search(search_target));
 }
 
-TEST(Iterpolation_search_test, Search_in_sorted_negative_vector){
-    std::vector<int> test_vector = {-5,-4,-3,-2,-1};
+TEST(Iterpolation_search_test, Search_in_sorted_negative_vector) {
+    std::vector<int> test_vector = {-5, -4, -3, -2, -1};
     interpolationSearch is(test_vector);
 
     int search_target = 1;
@@ -99,8 +99,8 @@ TEST(Iterpolation_search_test, Search_in_sorted_negative_vector){
     ASSERT_EQ(expected_search_result, is.search(search_target));
 }
 
-TEST(Iterpolation_search_test, Successful_search_in_sorted_negative_vector){
-    std::vector<int> test_vector = {-5,-4,-3,-2,-1};
+TEST(Iterpolation_search_test, Successful_search_in_sorted_negative_vector) {
+    std::vector<int> test_vector = {-5, -4, -3, -2, -1};
     interpolationSearch is(test_vector);
 
     int search_target = -4;
@@ -109,8 +109,8 @@ TEST(Iterpolation_search_test, Successful_search_in_sorted_negative_vector){
     ASSERT_EQ(expected_search_result, is.search(search_target));
 }
 
-TEST(Iterpolation_search_test, Search_in_unsorted_negative_vector){
-    std::vector<int> test_vector = {-4,-3,-5,-2,-1};
+TEST(Iterpolation_search_test, Search_in_unsorted_negative_vector) {
+    std::vector<int> test_vector = {-4, -3, -5, -2, -1};
     interpolationSearch is(test_vector);
 
     int search_target = -10;
@@ -119,8 +119,8 @@ TEST(Iterpolation_search_test, Search_in_unsorted_negative_vector){
     ASSERT_EQ(expected_search_result, is.search(search_target));
 }
 
-TEST(Iterpolation_search_test, Successful_search_in_unsorted_negative_vector){
-    std::vector<int> test_vector = {-4,-3,-5,-2,-1};
+TEST(Iterpolation_search_test, Successful_search_in_unsorted_negative_vector) {
+    std::vector<int> test_vector = {-4, -3, -5, -2, -1};
     interpolationSearch is(test_vector);
 
     int search_target = -3;
@@ -129,7 +129,7 @@ TEST(Iterpolation_search_test, Successful_search_in_unsorted_negative_vector){
     ASSERT_EQ(expected_search_result, is.search(search_target));
 }
 
-TEST(Iterpolation_search_test, Search_in_sorted_mixed_vector){
+TEST(Iterpolation_search_test, Search_in_sorted_mixed_vector) {
     std::vector<int> test_vector = {-5, -4, -3, -2, -1, 1, 2, 12, 23};
     interpolationSearch is(test_vector);
 
@@ -139,7 +139,7 @@ TEST(Iterpolation_search_test, Search_in_sorted_mixed_vector){
     ASSERT_EQ(expected_search_result, is.search(search_target));
 }
 
-TEST(Iterpolation_search_test, Successful_search_in_sorted_mixed_vector){
+TEST(Iterpolation_search_test, Successful_search_in_sorted_mixed_vector) {
     std::vector<int> test_vector = {-5, -4, -3, -2, -1, 1, 2, 12, 23};
     interpolationSearch is(test_vector);
 
@@ -149,7 +149,7 @@ TEST(Iterpolation_search_test, Successful_search_in_sorted_mixed_vector){
     ASSERT_EQ(expected_search_result, is.search(search_target));
 }
 
-TEST(Iterpolation_search_test, Search_in_unsorted_mixed_vector){
+TEST(Iterpolation_search_test, Search_in_unsorted_mixed_vector) {
     std::vector<int> test_vector = {-5, -4, 2, -2, -1, -3, 1, 23, 12};
     interpolationSearch is(test_vector);
 
@@ -159,7 +159,7 @@ TEST(Iterpolation_search_test, Search_in_unsorted_mixed_vector){
     ASSERT_EQ(expected_search_result, is.search(search_target));
 }
 
-TEST(Iterpolation_search_test, Successful_search_in_unsorted_mixed_vector){
+TEST(Iterpolation_search_test, Successful_search_in_unsorted_mixed_vector) {
     std::vector<int> test_vector = {-5, -4, 2, -2, -1, -3, 1, 23, 12};
     interpolationSearch is(test_vector);
 
