@@ -10,8 +10,8 @@ void set_application::help() {
     message += "insert - to inset element or elements separated by space \n";
     message += "erase - to erase element \n";
     message += "exist - to check if the element exists \n";
-    message += "/ - to separate  two sets in following commands \
-     /like & 1 2 3 / 2 3 5 / \n";
+    message += R"(/ - to separate  two sets in following commands 
+     /like & 1 2 3 / 2 3 5 / \n)";
     message += "& - to intersect two sets /like & 1 2 3 / 2 3 5 / \n";
     message += "| - to union two sets /like | 1 2 3 / 2 3 5 / \n";
     message += "- - to difference two sets /like - 1 2 3 / 2 3 5 / \n";
