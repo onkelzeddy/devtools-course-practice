@@ -50,3 +50,4 @@ add_test(NAME ${prefix}_can_calc_height
 set_tests_properties(${prefix}_can_calc_height PROPERTIES
     PASS_REGULAR_EXPRESSION "32"
     LABELS "${MODULE}")
+
