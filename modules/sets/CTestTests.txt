@@ -84,7 +84,7 @@ set_tests_properties (${prefix}_can_print_that_can_not_erase_non_digit PROPERTIE
     LABELS "${MODULE}")
 
 add_test(
-    NAME ${prefix}_can_print_that_element_does_not_exist
+    NAME ${prefix}_can_print_on_erase_that_element_does_not_exist
     COMMAND ${APPLICATION} erase 2
 )
 set_tests_properties (${prefix}_can_print_on_erase_that_element_does_not_exist PROPERTIES
