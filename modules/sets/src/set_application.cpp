@@ -25,8 +25,6 @@ bool set_application::is_number(const std::string& string) {
 }
 
 std::string set_application::operator()(int argc, const char** argv) {
-    int operation_started = 0;
-
     if (argc == 1) {
         help();
     }
@@ -41,7 +39,7 @@ std::string set_application::operator()(int argc, const char** argv) {
         if (arg == "get") {
             std::vector<int> elems = set.getElems();
             if (!set.getElems().empty()) {
-                for (int elem = 0; elem < elems.size(); elem++) {
+                for (size_t elem = 0; elem < elems.size(); elem++) {
                     message += " " + elems[elem];
                 }
                 message += '\n';
@@ -168,7 +166,7 @@ std::string set_application::operator()(int argc, const char** argv) {
                 break;
             }
             std::vector<int> res = result.getElems();
-            for (int i = 0; i < res.size(); i++) {
+            for (size_t i = 0; i < res.size(); i++) {
              message += " " + res[i];
             }
             message += '\n';
@@ -227,7 +225,7 @@ std::string set_application::operator()(int argc, const char** argv) {
                 break;
             }
             std::vector<int> res = result.getElems();
-            for (int i = 0; i < res.size(); i++) {
+            for (size_t i = 0; i < res.size(); i++) {
              message += " " + res[i];
             }
             message += '\n';
@@ -286,7 +284,7 @@ std::string set_application::operator()(int argc, const char** argv) {
                 break;
             }
             std::vector<int> res = result.getElems();
-            for (int i = 0; i < res.size(); i++) {
+            for (size_t i = 0; i < res.size(); i++) {
              message += " " + res[i];
             }
             message += '\n';
