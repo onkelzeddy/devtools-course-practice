@@ -1,4 +1,4 @@
-// Cpoyright 2023 Mironov Nikita
+// Copyright 2023 Mironov Nikita
 
 #include <stdlib.h>
 #include <stdio.h>
