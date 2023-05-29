@@ -39,7 +39,7 @@ std::string set_application::operator()(int argc, const char** argv) {
         if (arg == "get") {
             std::vector<int> elems = set.getElems();
             for (auto elem : elems) {
-                message += " " + elem;
+                message += " " + std::to_string(elem);
             }
             message += '\n';
             if (set.getElems().empty()) {
@@ -171,7 +171,7 @@ std::string set_application::operator()(int argc, const char** argv) {
             }
             std::vector<int> res = result.getElems();
             for (size_t i = 0; i < res.size(); i++) {
-             message += " " + res[i];
+             message += " " + std::to_string(res[i]);
             }
             message += '\n';
             continue;
@@ -230,7 +230,7 @@ std::string set_application::operator()(int argc, const char** argv) {
             }
             std::vector<int> res = result.getElems();
             for (size_t i = 0; i < res.size(); i++) {
-             message += " " + res[i];
+             message += " " + std::to_string(res[i]);
             }
             message += '\n';
             continue;
@@ -289,7 +289,7 @@ std::string set_application::operator()(int argc, const char** argv) {
             }
             std::vector<int> res = result.getElems();
             for (size_t i = 0; i < res.size(); i++) {
-             message += " " + res[i];
+             message += " " + std::to_string(res[i]);
             }
             message += '\n';
             continue;
