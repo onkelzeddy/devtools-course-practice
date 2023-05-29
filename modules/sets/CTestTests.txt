@@ -120,7 +120,7 @@ add_test(
     COMMAND ${APPLICATION} exist v
 )
 set_tests_properties (${prefix}_can_print_that_can_not_check_non_digit PROPERTIES
-    PASS_REGULAR_EXPRESSION "Error: can't check non digit!"
+    PASS_REGULAR_EXPRESSION "Error: can't erase non digit!"
     LABELS "${MODULE}")
 
 add_test(
@@ -128,7 +128,7 @@ add_test(
     COMMAND ${APPLICATION} exist 3
 )
 set_tests_properties (${prefix}_can_print_on_check_that_element_does_not_exist PROPERTIES
-    PASS_REGULAR_EXPRESSION "Error: can't check non digit!"
+    PASS_REGULAR_EXPRESSION "Notification: element doesn't exist."
     LABELS "${MODULE}")
 
 add_test(

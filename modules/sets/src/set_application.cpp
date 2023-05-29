@@ -61,11 +61,15 @@ std::string set_application::operator()(int argc, const char** argv) {
             }
             int insert_arg_num = arg_num + 1;
             std::string insert_arg(argv[insert_arg_num]);
-            while (is_number(insert_arg)) {
+            while (true) {
                 set.insert(stoi(insert_arg));
-                if (insert_arg_num + 1 < argc) {
+                if (insert_arg_num + 1 < argc || std::string(argv[insert_arg_num]) != "s") {
                     insert_arg_num += 1;
-                    std::string insert_arg(argv[insert_arg_num]);
+                    if (is_number(std::string(argv[insert_arg_num]))) {
+                        std::string insert_arg(argv[insert_arg_num]);
+                    } else {
+                        break;
+                    }
                 } else {
                     break;
                 }
@@ -101,7 +105,7 @@ std::string set_application::operator()(int argc, const char** argv) {
                 message += "Error: need arguments for check!";
                 break;
             } else if (!is_number(std::string(argv[arg_num + 1]))) {
-                message += "Error: can't erase non digit!";
+                message += "Error: can't check non digit!";
                 break;
             } else if (!set.isExit(stoi(std::string(argv[arg_num + 1])))) {
                 message += "Notification: element doesn't exist.\n";
