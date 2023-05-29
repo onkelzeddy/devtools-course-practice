@@ -37,7 +37,7 @@ set_tests_properties (${prefix}_can_print_that_can_not_insert_without_args_1 PRO
 
 add_test(
     NAME ${prefix}_can_print_that_can_not_insert_without_args_2
-    COMMAND ${APPLICATION} insert ;
+    COMMAND ${APPLICATION} insert s
 )
 set_tests_properties (${prefix}_can_print_that_can_not_insert_without_args_2 PROPERTIES
     PASS_REGULAR_EXPRESSION "Error: need arguments for insert!"
@@ -53,7 +53,7 @@ set_tests_properties (${prefix}_can_print_that_can_not_insert_non_digit PROPERTI
 
 add_test(
     NAME ${prefix}_can_insert
-    COMMAND ${APPLICATION} insert 1 2 ; get
+    COMMAND ${APPLICATION} insert 1 2 s get
 )
 set_tests_properties (${prefix}_can_insert PROPERTIES
     PASS_REGULAR_EXPRESSION " 1  2"
@@ -69,7 +69,7 @@ set_tests_properties (${prefix}_can_print_that_can_not_erase_without_args_1 PROP
 
 add_test(
     NAME ${prefix}_can_print_that_can_not_erase_without_args_2
-    COMMAND ${APPLICATION} erase ;
+    COMMAND ${APPLICATION} erase s
 )
 set_tests_properties (${prefix}_can_print_that_can_not_erase_without_args_2 PROPERTIES
     PASS_REGULAR_EXPRESSION "Error: need arguments for erase!"
@@ -93,7 +93,7 @@ set_tests_properties (${prefix}_can_print_on_erase_that_element_does_not_exist P
 
 add_test(
     NAME ${prefix}_can_erase
-    COMMAND ${APPLICATION} insert 2 ; erase 2 ; get
+    COMMAND ${APPLICATION} insert 2 s erase 2 s get
 )
 set_tests_properties (${prefix}_can_erase PROPERTIES
     PASS_REGULAR_EXPRESSION "Notification: set is empty." 
@@ -109,7 +109,7 @@ set_tests_properties (${prefix}_can_print_that_can_not_check_without_args_1 PROP
 
 add_test(
     NAME ${prefix}_can_print_that_can_not_check_without_args_2
-    COMMAND ${APPLICATION} exist ;
+    COMMAND ${APPLICATION} exist s
 )
 set_tests_properties (${prefix}_can_print_that_can_not_check_without_args_2 PROPERTIES
     PASS_REGULAR_EXPRESSION "Error: need arguments for check!"
@@ -133,7 +133,7 @@ set_tests_properties (${prefix}_can_print_on_check_that_element_does_not_exist P
 
 add_test(
     NAME ${prefix}_can_check
-    COMMAND ${APPLICATION} insert 2 ; exist 2
+    COMMAND ${APPLICATION} insert 2 s exist 2
 )
 set_tests_properties (${prefix}_can_check PROPERTIES
     PASS_REGULAR_EXPRESSION "Notification: element exists."
@@ -149,7 +149,7 @@ set_tests_properties (${prefix}_can_print_that_can_not_intersect_without_args_1 
 
 add_test(
     NAME ${prefix}_can_print_that_can_not_intersect_without_args_2
-    COMMAND ${APPLICATION} & ;
+    COMMAND ${APPLICATION} & s
 )
 set_tests_properties (${prefix}_can_print_that_can_not_intersect_without_args_2 PROPERTIES
     PASS_REGULAR_EXPRESSION "Error: need arguments for intersect!"
@@ -197,7 +197,7 @@ set_tests_properties (${prefix}_can_print_that_can_not_union_without_args_1 PROP
 
 add_test(
     NAME ${prefix}_can_print_that_can_not_union_without_args_2
-    COMMAND ${APPLICATION} | ;
+    COMMAND ${APPLICATION} | s
 )
 set_tests_properties (${prefix}_can_print_that_can_not_union_without_args_2 PROPERTIES
     PASS_REGULAR_EXPRESSION "Error: need arguments for union!"
@@ -245,7 +245,7 @@ set_tests_properties (${prefix}_can_print_that_can_not_difference_without_args_1
 
 add_test(
     NAME ${prefix}_can_print_that_can_not_difference_without_args_2
-    COMMAND ${APPLICATION} - ;
+    COMMAND ${APPLICATION} - s
 )
 set_tests_properties (${prefix}_can_print_that_can_not_difference_without_args_2 PROPERTIES
     PASS_REGULAR_EXPRESSION "Error: need arguments for difference!"
