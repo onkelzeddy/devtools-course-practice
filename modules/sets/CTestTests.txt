@@ -120,7 +120,7 @@ add_test(
     COMMAND ${APPLICATION} exist v
 )
 set_tests_properties (${prefix}_can_print_that_can_not_check_non_digit PROPERTIES
-    PASS_REGULAR_EXPRESSION "Error: can't erase non digit!"
+    PASS_REGULAR_EXPRESSION "Error: can't check non digit!"
     LABELS "${MODULE}")
 
 add_test(

@@ -38,12 +38,11 @@ std::string set_application::operator()(int argc, const char** argv) {
         }
         if (arg == "get") {
             std::vector<int> elems = set.getElems();
-            if (!set.getElems().empty()) {
-                for (size_t elem = 0; elem < elems.size(); elem++) {
-                    message += " " + elems[elem];
-                }
-                message += '\n';
-            } else {
+            for (auto elem : elems) {
+                message += " " + elem;
+            }
+            message += '\n';
+            if (set.getElems().empty()) {
                 message += "Notification: set is empty.\n";
             }
             continue;
@@ -64,7 +63,7 @@ std::string set_application::operator()(int argc, const char** argv) {
             while (true) {
                 set.insert(stoi(insert_arg));
                 if (insert_arg_num + 1 < argc ||
-                 std::string(argv[insert_arg_num]) != "s") {
+                 std::string(argv[insert_arg_num + 1]) != "s") {
                     insert_arg_num += 1;
                     if (is_number(std::string(argv[insert_arg_num]))) {
                         std::string insert_arg(argv[insert_arg_num]);
