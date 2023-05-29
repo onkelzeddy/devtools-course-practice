@@ -63,7 +63,8 @@ std::string set_application::operator()(int argc, const char** argv) {
             std::string insert_arg(argv[insert_arg_num]);
             while (true) {
                 set.insert(stoi(insert_arg));
-                if (insert_arg_num + 1 < argc || std::string(argv[insert_arg_num]) != "s") {
+                if (insert_arg_num + 1 < argc ||
+                 std::string(argv[insert_arg_num]) != "s") {
                     insert_arg_num += 1;
                     if (is_number(std::string(argv[insert_arg_num]))) {
                         std::string insert_arg(argv[insert_arg_num]);
