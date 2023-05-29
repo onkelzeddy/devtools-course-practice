@@ -31,7 +31,7 @@ std::string set_application::operator()(int argc, const char** argv) {
         help();
     }
 
-    for(int arg_num = 1; arg_num < argc; ++arg_num){
+    for (int arg_num = 1; arg_num < argc; ++arg_num) {
         if (arg_num != 1)
             message += " ";
         std::string arg(argv[arg_num]);
@@ -40,7 +40,7 @@ std::string set_application::operator()(int argc, const char** argv) {
         }
         if (arg == "get") {
             std::vector<int> elems = set.getElems();
-            if(!set.getElems().empty()){
+            if (!set.getElems().empty()) {
                 for (int elem = 0; elem < elems.size(); elem++) {
                     message += " " + elems[elem];
                 }
@@ -85,7 +85,7 @@ std::string set_application::operator()(int argc, const char** argv) {
             } else if (!is_number(std::string(argv[arg_num + 1]))) {
                 message += "Error: can't erase non digit!";
                 break;
-            }else if (!set.isExit(stoi(std::string(argv[arg_num + 1])))) {
+            } else if (!set.isExit(stoi(std::string(argv[arg_num + 1])))) {
                 message += "Notification: element doesn't exist.\n";
                 arg_num += 1;
                 continue;
