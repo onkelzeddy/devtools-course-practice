@@ -23,7 +23,7 @@ add_test(
     NAME ${prefix}_can_print_that_set_is_empty
     COMMAND ${APPLICATION} get
 )
-set_tests_properties (${prefix}_can_print_that_set_is_empty
+set_tests_properties (${prefix}_can_print_that_set_is_empty PROPERTIES
     PASS_REGULAR_EXPRESSION "Notification: set is empty."
     LABELS "${MODULE}")
 
@@ -31,7 +31,7 @@ add_test(
     NAME ${prefix}_can_print_that_can_not_insert_without_args_1
     COMMAND ${APPLICATION} insert
 )
-set_tests_properties (${prefix}_can_print_that_can_not_insert_without_args_1
+set_tests_properties (${prefix}_can_print_that_can_not_insert_without_args_1 PROPERTIES
     PASS_REGULAR_EXPRESSION "Error: need arguments for insert!"
     LABELS "${MODULE}")
 
@@ -39,7 +39,7 @@ add_test(
     NAME ${prefix}_can_print_that_can_not_insert_without_args_2
     COMMAND ${APPLICATION} insert ;
 )
-set_tests_properties (${prefix}_can_print_that_can_not_insert_without_args_2
+set_tests_properties (${prefix}_can_print_that_can_not_insert_without_args_2 PROPERTIES
     PASS_REGULAR_EXPRESSION "Error: need arguments for insert!"
     LABELS "${MODULE}")
 
@@ -47,7 +47,7 @@ add_test(
     NAME ${prefix}_can_print_that_can_not_insert_non_digit
     COMMAND ${APPLICATION} insert v
 )
-set_tests_properties (${prefix}_can_print_that_can_not_insert_non_digit
+set_tests_properties (${prefix}_can_print_that_can_not_insert_non_digit PROPERTIES
     PASS_REGULAR_EXPRESSION "Error: can't insert non digit!"
     LABELS "${MODULE}")
 
@@ -55,7 +55,7 @@ add_test(
     NAME ${prefix}_can_insert
     COMMAND ${APPLICATION} insert 1 2 ; get
 )
-set_tests_properties (${prefix}_can_insert
+set_tests_properties (${prefix}_can_insert PROPERTIES
     PASS_REGULAR_EXPRESSION " 1  2"
     LABELS "${MODULE}")
 
@@ -63,7 +63,7 @@ add_test(
     NAME ${prefix}_can_print_that_can_not_erase_without_args_1
     COMMAND ${APPLICATION} erase
 )
-set_tests_properties (${prefix}_can_print_that_can_not_erase_without_args_1
+set_tests_properties (${prefix}_can_print_that_can_not_erase_without_args_1 PROPERTIES
     PASS_REGULAR_EXPRESSION "Error: need arguments for erase!"
     LABELS "${MODULE}")
 
@@ -71,7 +71,7 @@ add_test(
     NAME ${prefix}_can_print_that_can_not_erase_without_args_2
     COMMAND ${APPLICATION} erase ;
 )
-set_tests_properties (${prefix}_can_print_that_can_not_erase_without_args_2
+set_tests_properties (${prefix}_can_print_that_can_not_erase_without_args_2 PROPERTIES
     PASS_REGULAR_EXPRESSION "Error: need arguments for erase!"
     LABELS "${MODULE}")
 
@@ -79,7 +79,7 @@ add_test(
     NAME ${prefix}_can_print_that_can_not_erase_non_digit
     COMMAND ${APPLICATION} erase v
 )
-set_tests_properties (${prefix}_can_print_that_can_not_erase_non_digit
+set_tests_properties (${prefix}_can_print_that_can_not_erase_non_digit PROPERTIES
     PASS_REGULAR_EXPRESSION "Error: can't erase non digit!"
     LABELS "${MODULE}")
 
@@ -87,7 +87,7 @@ add_test(
     NAME ${prefix}_can_print_that_element_does_not_exist
     COMMAND ${APPLICATION} erase 2
 )
-set_tests_properties (${prefix}_can_print_on_erase_that_element_does_not_exist
+set_tests_properties (${prefix}_can_print_on_erase_that_element_does_not_exist PROPERTIES
     PASS_REGULAR_EXPRESSION "Notification: element doesn't exist."
     LABELS "${MODULE}")
 
@@ -95,15 +95,15 @@ add_test(
     NAME ${prefix}_can_erase
     COMMAND ${APPLICATION} insert 2 ; erase 2 ; get
 )
-set_tests_properties (${prefix}_can_erase
-    PASS_REGULAR_EXPRESSION "Notification: set is empty."
+set_tests_properties (${prefix}_can_erase PROPERTIES
+    PASS_REGULAR_EXPRESSION "Notification: set is empty." 
     LABELS "${MODULE}")
 
 add_test(
     NAME ${prefix}_can_print_that_can_not_check_without_args_1
     COMMAND ${APPLICATION} exist
 )
-set_tests_properties (${prefix}_can_print_that_can_not_check_without_args_1
+set_tests_properties (${prefix}_can_print_that_can_not_check_without_args_1 PROPERTIES
     PASS_REGULAR_EXPRESSION "Error: need arguments for check!"
     LABELS "${MODULE}")
 
@@ -111,7 +111,7 @@ add_test(
     NAME ${prefix}_can_print_that_can_not_check_without_args_2
     COMMAND ${APPLICATION} exist ;
 )
-set_tests_properties (${prefix}_can_print_that_can_not_check_without_args_2
+set_tests_properties (${prefix}_can_print_that_can_not_check_without_args_2 PROPERTIES
     PASS_REGULAR_EXPRESSION "Error: need arguments for check!"
     LABELS "${MODULE}")
 
@@ -119,7 +119,7 @@ add_test(
     NAME ${prefix}_can_print_that_can_not_check_non_digit
     COMMAND ${APPLICATION} exist v
 )
-set_tests_properties (${prefix}_can_print_that_can_not_check_non_digit
+set_tests_properties (${prefix}_can_print_that_can_not_check_non_digit PROPERTIES
     PASS_REGULAR_EXPRESSION "Error: can't check non digit!"
     LABELS "${MODULE}")
 
@@ -127,7 +127,7 @@ add_test(
     NAME ${prefix}_can_print_on_check_that_element_does_not_exist
     COMMAND ${APPLICATION} exist 3
 )
-set_tests_properties (${prefix}_can_print_on_check_that_element_does_not_exist
+set_tests_properties (${prefix}_can_print_on_check_that_element_does_not_exist PROPERTIES
     PASS_REGULAR_EXPRESSION "Error: can't check non digit!"
     LABELS "${MODULE}")
 
@@ -135,7 +135,7 @@ add_test(
     NAME ${prefix}_can_check
     COMMAND ${APPLICATION} insert 2 ; exist 2
 )
-set_tests_properties (${prefix}_can_check
+set_tests_properties (${prefix}_can_check PROPERTIES
     PASS_REGULAR_EXPRESSION "Notification: element exists."
     LABELS "${MODULE}")
 
@@ -143,7 +143,7 @@ add_test(
     NAME ${prefix}_can_print_that_can_not_intersect_without_args_1
     COMMAND ${APPLICATION} &
 )
-set_tests_properties (${prefix}_can_print_that_can_not_intersect_without_args_1
+set_tests_properties (${prefix}_can_print_that_can_not_intersect_without_args_1 PROPERTIES
     PASS_REGULAR_EXPRESSION "Error: need arguments for intersect!"
     LABELS "${MODULE}")
 
@@ -151,7 +151,7 @@ add_test(
     NAME ${prefix}_can_print_that_can_not_intersect_without_args_2
     COMMAND ${APPLICATION} & ;
 )
-set_tests_properties (${prefix}_can_print_that_can_not_intersect_without_args_2
+set_tests_properties (${prefix}_can_print_that_can_not_intersect_without_args_2 PROPERTIES
     PASS_REGULAR_EXPRESSION "Error: need arguments for intersect!"
     LABELS "${MODULE}")
 
@@ -159,7 +159,7 @@ add_test(
     NAME ${prefix}_can_print_that_can_not_intersect_without_args_3
     COMMAND ${APPLICATION} & /
 )
-set_tests_properties (${prefix}_can_print_that_can_not_intersect_without_args_3
+set_tests_properties (${prefix}_can_print_that_can_not_intersect_without_args_3 PROPERTIES
     PASS_REGULAR_EXPRESSION "Error: need arguments for intersect!"
     LABELS "${MODULE}")
 
@@ -167,7 +167,7 @@ add_test(
     NAME ${prefix}_can_intersect
     COMMAND ${APPLICATION} & 1 2 3 / 1 2 3
 )
-set_tests_properties (${prefix}_can_intersect
+set_tests_properties (${prefix}_can_intersect PROPERTIES
     PASS_REGULAR_EXPRESSION " 1 2 3"
     LABELS "${MODULE}")
 
@@ -175,7 +175,7 @@ add_test(
     NAME ${prefix}_can_print_on_intersect_that_can_not_use_non_digit
     COMMAND ${APPLICATION} & 1 v
 )
-set_tests_properties (${prefix}_can_print_on_intersect_that_can_not_use_non_digit
+set_tests_properties (${prefix}_can_print_on_intersect_that_can_not_use_non_digit PROPERTIES
     PASS_REGULAR_EXPRESSION "Error: can't intersect non digit!"
     LABELS "${MODULE}")
 
@@ -183,7 +183,7 @@ add_test(
     NAME ${prefix}_can_print_on_intersect_that_sets_can_not_be_empty
     COMMAND ${APPLICATION} & 1 2 3 /
 )
-set_tests_properties (${prefix}_can_print_on_intersect_that_sets_can_not_be_empty
+set_tests_properties (${prefix}_can_print_on_intersect_that_sets_can_not_be_empty PROPERTIES
     PASS_REGULAR_EXPRESSION "Error: sets can't be empty!"
     LABELS "${MODULE}")
 
@@ -191,7 +191,7 @@ add_test(
     NAME ${prefix}_can_print_that_can_not_union_without_args_1
     COMMAND ${APPLICATION} |
 )
-set_tests_properties (${prefix}_can_print_that_can_not_union_without_args_1
+set_tests_properties (${prefix}_can_print_that_can_not_union_without_args_1 PROPERTIES
     PASS_REGULAR_EXPRESSION "Error: need arguments for union!"
     LABELS "${MODULE}")
 
@@ -199,7 +199,7 @@ add_test(
     NAME ${prefix}_can_print_that_can_not_union_without_args_2
     COMMAND ${APPLICATION} | ;
 )
-set_tests_properties (${prefix}_can_print_that_can_not_union_without_args_2
+set_tests_properties (${prefix}_can_print_that_can_not_union_without_args_2 PROPERTIES
     PASS_REGULAR_EXPRESSION "Error: need arguments for union!"
     LABELS "${MODULE}")
 
@@ -207,7 +207,7 @@ add_test(
     NAME ${prefix}_can_print_that_can_not_union_without_args_3
     COMMAND ${APPLICATION} | /
 )
-set_tests_properties (${prefix}_can_print_that_can_not_union_without_args_3
+set_tests_properties (${prefix}_can_print_that_can_not_union_without_args_3 PROPERTIES
     PASS_REGULAR_EXPRESSION "Error: need arguments for union!"
     LABELS "${MODULE}")
 
@@ -215,7 +215,7 @@ add_test(
     NAME ${prefix}_can_union
     COMMAND ${APPLICATION} | 1 2 3 / 4 5 6
 )
-set_tests_properties (${prefix}_can_union
+set_tests_properties (${prefix}_can_union PROPERTIES
     PASS_REGULAR_EXPRESSION " 1 2 3 4 5 6"
     LABELS "${MODULE}")
 
@@ -223,7 +223,7 @@ add_test(
     NAME ${prefix}_can_print_on_union_that_can_not_use_non_digit
     COMMAND ${APPLICATION} | 1 v
 )
-set_tests_properties (${prefix}_can_print_on_union_that_can_not_use_non_digit
+set_tests_properties (${prefix}_can_print_on_union_that_can_not_use_non_digit PROPERTIES
     PASS_REGULAR_EXPRESSION "Error: can't union non digit!"
     LABELS "${MODULE}")
 
@@ -231,7 +231,7 @@ add_test(
     NAME ${prefix}_can_print_on_union_that_sets_can_not_be_empty
     COMMAND ${APPLICATION} | 1 2 3 /
 )
-set_tests_properties (${prefix}_can_print_on_union_that_sets_can_not_be_empty
+set_tests_properties (${prefix}_can_print_on_union_that_sets_can_not_be_empty PROPERTIES
     PASS_REGULAR_EXPRESSION "Error: sets can't be empty!"
     LABELS "${MODULE}")
 
@@ -239,7 +239,7 @@ add_test(
     NAME ${prefix}_can_print_that_can_not_difference_without_args_1
     COMMAND ${APPLICATION} -
 )
-set_tests_properties (${prefix}_can_print_that_can_not_difference_without_args_1
+set_tests_properties (${prefix}_can_print_that_can_not_difference_without_args_1 PROPERTIES
     PASS_REGULAR_EXPRESSION "Error: need arguments for difference!"
     LABELS "${MODULE}")
 
@@ -247,7 +247,7 @@ add_test(
     NAME ${prefix}_can_print_that_can_not_difference_without_args_2
     COMMAND ${APPLICATION} - ;
 )
-set_tests_properties (${prefix}_can_print_that_can_not_difference_without_args_2
+set_tests_properties (${prefix}_can_print_that_can_not_difference_without_args_2 PROPERTIES
     PASS_REGULAR_EXPRESSION "Error: need arguments for difference!"
     LABELS "${MODULE}")
 
@@ -255,7 +255,7 @@ add_test(
     NAME ${prefix}_can_print_that_can_not_difference_without_args_3
     COMMAND ${APPLICATION} - /
 )
-set_tests_properties (${prefix}_can_print_that_can_not_difference_without_args_3
+set_tests_properties (${prefix}_can_print_that_can_not_difference_without_args_3 PROPERTIES
     PASS_REGULAR_EXPRESSION "Error: need arguments for difference!"
     LABELS "${MODULE}")
 
@@ -263,7 +263,7 @@ add_test(
     NAME ${prefix}_can_difference
     COMMAND ${APPLICATION} - 1 2 3 / 2 3 5
 )
-set_tests_properties (${prefix}_can_difference
+set_tests_properties (${prefix}_can_difference PROPERTIES
     PASS_REGULAR_EXPRESSION " 1 5"
     LABELS "${MODULE}")
 
@@ -271,7 +271,7 @@ add_test(
     NAME ${prefix}_can_print_on_difference_that_can_not_use_non_digit
     COMMAND ${APPLICATION} - 1 v
 )
-set_tests_properties (${prefix}_can_print_on_difference_that_can_not_use_non_digit
+set_tests_properties (${prefix}_can_print_on_difference_that_can_not_use_non_digit PROPERTIES
     PASS_REGULAR_EXPRESSION "Error: can't difference non digit!"
     LABELS "${MODULE}")
 
@@ -279,6 +279,6 @@ add_test(
     NAME ${prefix}_can_print_on_difference_that_sets_can_not_be_empty
     COMMAND ${APPLICATION} - 1 2 3 /
 )
-set_tests_properties (${prefix}_can_print_on_difference_that_sets_can_not_be_empty
+set_tests_properties (${prefix}_can_print_on_difference_that_sets_can_not_be_empty PROPERTIES
     PASS_REGULAR_EXPRESSION "Error: sets can't be empty!"
     LABELS "${MODULE}")
