@@ -1,0 +1,44 @@
+#############################################
+##### Testing
+#############################################
+
+set(prefix "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_run
+    COMMAND ${APPLICATION}
+)
+set_tests_properties (${prefix}_can_run PROPERTIES
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_print_reference
+    COMMAND ${APPLICATION}
+)
+set_tests_properties (${prefix}_can_print_reference PROPERTIES
+    PASS_REGULAR_EXPRESSION "Polygon area calculation."
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_check_arguments_number
+    COMMAND ${APPLICATION} 0.1 2 3.4
+)
+set_tests_properties (${prefix}_can_check_arguments_number PROPERTIES
+    PASS_REGULAR_EXPRESSION "Wrong argument sum, try --reference"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_check_arguments_type
+    COMMAND ${APPLICATION} 0.0 5 b6.3 -8 4 -1 7.5 2
+)
+set_tests_properties (${prefix}_can_check_arguments_type PROPERTIES
+    PASS_REGULAR_EXPRESSION "Coordinates do not exist"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_count_polygon_area
+    COMMAND ${APPLICATION} 0.0 0.0 3.0 0.0 3.0 2.0 0.0 2.0
+)
+set_tests_properties (${prefix}_can_count_polygon_area PROPERTIES
+    PASS_REGULAR_EXPRESSION "6"
+    LABELS "${MODULE}")
