@@ -5,7 +5,7 @@
 void set_application::help() {
     message += "This application is needed to work with the Set class.\n\n";
     message += "To get started, write one of the commands below: \n";
-    message += "; - to separate operations \n";
+    message += "s - to separate operations \n";
     message += "get - to get elements of set \n";
     message += "insert - to inset element or elements separated by space \n";
     message += "erase - to erase element \n";
@@ -33,7 +33,7 @@ std::string set_application::operator()(int argc, const char** argv) {
         if (arg_num != 1)
             message += " ";
         std::string arg(argv[arg_num]);
-        if (arg == ";") {
+        if (arg == "s") {
             continue;
         }
         if (arg == "get") {
@@ -52,7 +52,7 @@ std::string set_application::operator()(int argc, const char** argv) {
             if (arg_num + 1 == argc) {
                 message += "Error: need arguments for insert!";
                 break;
-            } else if (std::string(argv[arg_num + 1]) == ";") {
+            } else if (std::string(argv[arg_num + 1]) == "s") {
                 message += "Error: need arguments for insert!";
                 break;
             } else if (!is_number(std::string(argv[arg_num + 1]))) {
@@ -77,7 +77,7 @@ std::string set_application::operator()(int argc, const char** argv) {
             if (arg_num + 1 == argc) {
                 message += "Error: need arguments for erase!";
                 break;
-            } else if (std::string(argv[arg_num + 1]) == ";") {
+            } else if (std::string(argv[arg_num + 1]) == "s") {
                 message += "Error: need arguments for erase!";
                 break;
             } else if (!is_number(std::string(argv[arg_num + 1]))) {
@@ -97,7 +97,7 @@ std::string set_application::operator()(int argc, const char** argv) {
             if (arg_num + 1 == argc) {
                 message += "Error: need arguments for check!";
                 break;
-            } else if (std::string(argv[arg_num + 1]) == ";") {
+            } else if (std::string(argv[arg_num + 1]) == "s") {
                 message += "Error: need arguments for check!";
                 break;
             } else if (!is_number(std::string(argv[arg_num + 1]))) {
@@ -117,7 +117,7 @@ std::string set_application::operator()(int argc, const char** argv) {
             if (arg_num + 1 == argc) {
                 message += "Error: need arguments for intersect!";
                 break;
-            } else if (std::string(argv[arg_num + 1]) == ";") {
+            } else if (std::string(argv[arg_num + 1]) == "s") {
                 message += "Error: need arguments for intersect!";
                 break;
             } else if (std::string(argv[arg_num + 1]) == "/") {
@@ -151,7 +151,7 @@ std::string set_application::operator()(int argc, const char** argv) {
                 }
                 if (inter_iterator + 1 == argc) {
                     break;
-                } else if (std::string(argv[arg_num + 1]) == ";") {
+                } else if (std::string(argv[arg_num + 1]) == "s") {
                     break;
                 }
                 inter_iterator += 1;
@@ -176,7 +176,7 @@ std::string set_application::operator()(int argc, const char** argv) {
             if (arg_num + 1 == argc) {
                 message += "Error: need arguments for union!";
                 break;
-            } else if (std::string(argv[arg_num + 1]) == ";") {
+            } else if (std::string(argv[arg_num + 1]) == "s") {
                 message += "Error: need arguments for union!";
                 break;
             } else if (std::string(argv[arg_num + 1]) == "/") {
@@ -210,7 +210,7 @@ std::string set_application::operator()(int argc, const char** argv) {
                 }
                 if (inter_iterator + 1 == argc) {
                     break;
-                } else if (std::string(argv[arg_num + 1]) == ";") {
+                } else if (std::string(argv[arg_num + 1]) == "s") {
                     break;
                 }
                 inter_iterator += 1;
@@ -235,7 +235,7 @@ std::string set_application::operator()(int argc, const char** argv) {
             if (arg_num + 1 == argc) {
                 message += "Error: need arguments for difference!";
                 break;
-            } else if (std::string(argv[arg_num + 1]) == ";") {
+            } else if (std::string(argv[arg_num + 1]) == "s") {
                 message += "Error: need arguments for difference!";
                 break;
             } else if (std::string(argv[arg_num + 1]) == "/") {
@@ -269,7 +269,7 @@ std::string set_application::operator()(int argc, const char** argv) {
                 }
                 if (inter_iterator + 1 == argc) {
                     break;
-                } else if (std::string(argv[arg_num + 1]) == ";") {
+                } else if (std::string(argv[arg_num + 1]) == "s") {
                     break;
                 }
                 inter_iterator += 1;
