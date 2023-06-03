@@ -39,7 +39,6 @@ std::string set_application::operator()(int argc, const char** argv) {
             for (unsigned int i = 0; i < elems.size(); i++) {
                 message += " " + std::to_string(elems[i]);
             }
-            message += '\n';
             if (set.getElems().empty()) {
                 message += "Notification: set is empty.\n";
             }
