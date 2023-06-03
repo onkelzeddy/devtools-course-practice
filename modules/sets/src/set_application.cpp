@@ -68,7 +68,7 @@ std::string set_application::operator()(int argc, const char** argv) {
                     if (is_number(insert_arg)) {
                         set.insert(stoi(insert_arg));
                     } else {
-                        message = "Error: can't intersect non digit!";
+                        message = "Error: can't insert non digit!";
                         break;
                     }
                 } else {
