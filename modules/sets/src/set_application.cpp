@@ -38,7 +38,7 @@ std::string set_application::operator()(int argc, const char** argv) {
         }
         if (arg == "get") {
             std::vector<int> elems = set.getElems();
-            for (unsigned long i = 0; i < elems.size(); i++) {
+            for (unsigned int i = 0; i < elems.size(); i++) {
                 message += " " + std::to_string(elems[i]);
             }
             message += '\n';
