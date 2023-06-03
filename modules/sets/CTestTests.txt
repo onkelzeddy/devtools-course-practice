@@ -56,7 +56,7 @@ add_test(
     COMMAND ${APPLICATION} insert 1 2 s get
 )
 set_tests_properties (${prefix}_can_insert PROPERTIES
-    PASS_REGULAR_EXPRESSION " 1  2"
+    PASS_REGULAR_EXPRESSION " 1 2"
     LABELS "${MODULE}")
 
 add_test(

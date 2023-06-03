@@ -135,34 +135,32 @@ std::string set_application::operator()(int argc, const char** argv) {
             bool non_digit_flag = false;
             int inter_iterator = arg_num + 1;
             std::string inter_arg(argv[inter_iterator]);
+            first_set.insert(stoi(inter_arg));
             while (true) {
-                if (inter_arg == "/") {
-                    first_set_filling = false;
-                    if (inter_iterator + 1 != argc) {
-                        inter_iterator += 1;
-                        std::string inter_arg(argv[inter_iterator]);
-                        continue;
-                    } else {
+                inter_iterator += 1;
+                if (inter_iterator < argc) {
+                    inter_arg = argv[inter_iterator];
+                    if (inter_arg == "s") {
                         break;
                     }
-                }
-                if (!is_number(inter_arg)) {
-                    message += "Error: can't intersect non digit!";
-                    non_digit_flag = true;
-                    break;
-                }
-                if (first_set_filling) {
-                    first_set.insert(stoi(inter_arg));
+                    if (inter_arg == "/") {
+                        first_set_filling = false;
+                        continue;
+                    }
+                    if (is_number(inter_arg)) {
+                        if (first_set_filling) {
+                            first_set.insert(stoi(inter_arg));
+                        } else {
+                            second_set.insert(stoi(inter_arg));
+                        }
+                    } else {
+                        message = "Error: can't intersect non digit!";
+                        non_digit_flag = true;
+                        break;
+                    }
                 } else {
-                    second_set.insert(stoi(inter_arg));
-                }
-                if (inter_iterator + 1 == argc) {
-                    break;
-                } else if (std::string(argv[arg_num + 1]) == "s") {
                     break;
                 }
-                inter_iterator += 1;
-                std::string inter_arg(argv[inter_iterator]);
             }
             if (non_digit_flag) {
                 break;
@@ -196,35 +194,38 @@ std::string set_application::operator()(int argc, const char** argv) {
             Set first_set;
             Set second_set;
             bool first_set_filling = true;
+            bool non_digit_flag = false;
             int inter_iterator = arg_num + 1;
             std::string inter_arg(argv[inter_iterator]);
+            first_set.insert(stoi(inter_arg));
             while (true) {
-                if (!is_number(inter_arg) && inter_arg != "/") {
-                    message += "Error: can't union non digit!";
-                    break;
-                }
-                if (inter_arg == "/") {
-                    first_set_filling = false;
-                    if (inter_iterator + 1 != argc) {
-                        inter_iterator += 1;
-                        std::string inter_arg(argv[inter_iterator]);
-                        continue;
-                    } else {
+                inter_iterator += 1;
+                if (inter_iterator < argc) {
+                    inter_arg = argv[inter_iterator];
+                    if (inter_arg == "s") {
                         break;
                     }
-                }
-                if (first_set_filling) {
-                    first_set.insert(stoi(inter_arg));
+                    if (inter_arg == "/") {
+                        first_set_filling = false;
+                        continue;
+                    }
+                    if (is_number(inter_arg)) {
+                        if (first_set_filling) {
+                            first_set.insert(stoi(inter_arg));
+                        } else {
+                            second_set.insert(stoi(inter_arg));
+                        }
+                    } else {
+                        message = "Error: can't intersect non digit!";
+                        non_digit_flag = true;
+                        break;
+                    }
                 } else {
-                    second_set.insert(stoi(inter_arg));
-                }
-                if (inter_iterator + 1 == argc) {
-                    break;
-                } else if (std::string(argv[arg_num + 1]) == "s") {
                     break;
                 }
-                inter_iterator += 1;
-                std::string inter_arg(argv[inter_iterator]);
+            }
+            if (non_digit_flag) {
+                break;
             }
             Set result;
             if (!first_set.getElems().empty() &&
@@ -255,35 +256,38 @@ std::string set_application::operator()(int argc, const char** argv) {
             Set first_set;
             Set second_set;
             bool first_set_filling = true;
+            bool non_digit_flag = false;
             int inter_iterator = arg_num + 1;
             std::string inter_arg(argv[inter_iterator]);
+            first_set.insert(stoi(inter_arg));
             while (true) {
-                if (!is_number(inter_arg) && inter_arg != "/") {
-                    message += "Error: can't difference non digit!";
-                    break;
-                }
-                if (inter_arg == "/") {
-                    first_set_filling = false;
-                    if (inter_iterator + 1 != argc) {
-                        inter_iterator += 1;
-                        std::string inter_arg(argv[inter_iterator]);
-                        continue;
-                    } else {
+                inter_iterator += 1;
+                if (inter_iterator < argc) {
+                    inter_arg = argv[inter_iterator];
+                    if (inter_arg == "s") {
                         break;
                     }
-                }
-                if (first_set_filling) {
-                    first_set.insert(stoi(inter_arg));
+                    if (inter_arg == "/") {
+                        first_set_filling = false;
+                        continue;
+                    }
+                    if (is_number(inter_arg)) {
+                        if (first_set_filling) {
+                            first_set.insert(stoi(inter_arg));
+                        } else {
+                            second_set.insert(stoi(inter_arg));
+                        }
+                    } else {
+                        message = "Error: can't intersect non digit!";
+                        non_digit_flag = true;
+                        break;
+                    }
                 } else {
-                    second_set.insert(stoi(inter_arg));
-                }
-                if (inter_iterator + 1 == argc) {
-                    break;
-                } else if (std::string(argv[arg_num + 1]) == "s") {
                     break;
                 }
-                inter_iterator += 1;
-                std::string inter_arg(argv[inter_iterator]);
+            }
+            if (non_digit_flag) {
+                break;
             }
             Set result;
             if (!first_set.getElems().empty() &&
