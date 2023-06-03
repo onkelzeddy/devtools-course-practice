@@ -38,8 +38,8 @@ std::string set_application::operator()(int argc, const char** argv) {
         }
         if (arg == "get") {
             std::vector<int> elems = set.getElems();
-            for (auto elem : elems) {
-                message += " " + std::to_string(elem);
+            for (int i = 0; i < elems.size(); i++) {
+                message += " " + std::to_string(elems[i]);
             }
             message += '\n';
             if (set.getElems().empty()) {
@@ -130,13 +130,10 @@ std::string set_application::operator()(int argc, const char** argv) {
             Set first_set;
             Set second_set;
             bool first_set_filling = true;
+            bool non_digit_flag = false;
             int inter_iterator = arg_num + 1;
             std::string inter_arg(argv[inter_iterator]);
             while (true) {
-                if (!is_number(inter_arg) && inter_arg != "/") {
-                    message += "Error: can't intersect non digit!";
-                    break;
-                }
                 if (inter_arg == "/") {
                     first_set_filling = false;
                     if (inter_iterator + 1 != argc) {
@@ -146,6 +143,11 @@ std::string set_application::operator()(int argc, const char** argv) {
                     } else {
                         break;
                     }
+                }
+                if (!is_number(inter_arg)) {
+                    message += "Error: can't intersect non digit!";
+                    non_digit_flag = true;
+                    break;
                 }
                 if (first_set_filling) {
                     first_set.insert(stoi(inter_arg));
@@ -159,6 +161,9 @@ std::string set_application::operator()(int argc, const char** argv) {
                 }
                 inter_iterator += 1;
                 std::string inter_arg(argv[inter_iterator]);
+            }
+            if (non_digit_flag) {
+                break;
             }
             Set result;
             if (!first_set.getElems().empty() &&
