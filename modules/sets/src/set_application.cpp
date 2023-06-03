@@ -60,13 +60,15 @@ std::string set_application::operator()(int argc, const char** argv) {
             }
             int insert_arg_num = arg_num + 1;
             std::string insert_arg(argv[insert_arg_num]);
+            set.insert(stoi(insert_arg));
             while (true) {
-                set.insert(stoi(insert_arg));
-                if (insert_arg_num + 1 < argc) {
-                    insert_arg_num += 1;
-                    if (is_number(std::string(argv[insert_arg_num]))) {
-                        std::string insert_arg(argv[insert_arg_num]);
+                insert_arg_num += 1;
+                if (insert_arg_num < argc) {
+                    insert_arg = argv[insert_arg_num];
+                    if (is_number(insert_arg)) {
+                        set.insert(stoi(insert_arg));
                     } else {
+                        message = "Error: can't intersect non digit!";
                         break;
                     }
                 } else {
