@@ -216,7 +216,7 @@ std::string set_application::operator()(int argc, const char** argv) {
                             second_set.insert(stoi(inter_arg));
                         }
                     } else {
-                        message = "Error: can't intersect non digit!";
+                        message = "Error: can't union non digit!";
                         non_digit_flag = true;
                         break;
                     }
@@ -230,7 +230,7 @@ std::string set_application::operator()(int argc, const char** argv) {
             Set result;
             if (!first_set.getElems().empty() &&
              !second_set.getElems().empty()) {
-                result = first_set & second_set;
+                result = first_set | second_set;
             } else {
                 message += "Error: sets can't be empty!";
                 break;
@@ -278,7 +278,7 @@ std::string set_application::operator()(int argc, const char** argv) {
                             second_set.insert(stoi(inter_arg));
                         }
                     } else {
-                        message = "Error: can't intersect non digit!";
+                        message = "Error: can't difference non digit!";
                         non_digit_flag = true;
                         break;
                     }
@@ -292,7 +292,7 @@ std::string set_application::operator()(int argc, const char** argv) {
             Set result;
             if (!first_set.getElems().empty() &&
              !second_set.getElems().empty()) {
-                result = first_set & second_set;
+                result = first_set - second_set;
             } else {
                 message += "Error: sets can't be empty!";
                 break;
