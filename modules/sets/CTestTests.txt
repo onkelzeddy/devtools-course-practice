@@ -52,6 +52,14 @@ set_tests_properties (${prefix}_can_print_that_can_not_insert_non_digit PROPERTI
     LABELS "${MODULE}")
 
 add_test(
+    NAME ${prefix}_can_print_that_can_not_insert_non_digit_after_num
+    COMMAND ${APPLICATION} insert 1 v
+)
+set_tests_properties (${prefix}_can_print_that_can_not_insert_non_digit_after_num PROPERTIES
+    PASS_REGULAR_EXPRESSION "Error: can't insert non digit!"
+    LABELS "${MODULE}")
+
+add_test(
     NAME ${prefix}_can_insert
     COMMAND ${APPLICATION} insert 1 2 s get
 )
@@ -164,10 +172,18 @@ set_tests_properties (${prefix}_can_print_that_can_not_intersect_without_args_3 
     LABELS "${MODULE}")
 
 add_test(
-    NAME ${prefix}_can_intersect
+    NAME ${prefix}_can_intersect_1
     COMMAND ${APPLICATION} & 1 2 3 / 1 2 3
 )
-set_tests_properties (${prefix}_can_intersect PROPERTIES
+set_tests_properties (${prefix}_can_intersect_1 PROPERTIES
+    PASS_REGULAR_EXPRESSION " 1 2 3"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_intersect_2
+    COMMAND ${APPLICATION} & 1 2 3 / 1 2 3 s
+)
+set_tests_properties (${prefix}_can_intersect_2 PROPERTIES
     PASS_REGULAR_EXPRESSION " 1 2 3"
     LABELS "${MODULE}")
 
@@ -212,10 +228,18 @@ set_tests_properties (${prefix}_can_print_that_can_not_union_without_args_3 PROP
     LABELS "${MODULE}")
 
 add_test(
-    NAME ${prefix}_can_union
+    NAME ${prefix}_can_union_1
     COMMAND ${APPLICATION} | 1 2 3 / 4 5 6
 )
-set_tests_properties (${prefix}_can_union PROPERTIES
+set_tests_properties (${prefix}_can_union_1 PROPERTIES
+    PASS_REGULAR_EXPRESSION " 1 2 3 4 5 6"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_union_2
+    COMMAND ${APPLICATION} | 1 2 3 / 4 5 6 s
+)
+set_tests_properties (${prefix}_can_union_2 PROPERTIES
     PASS_REGULAR_EXPRESSION " 1 2 3 4 5 6"
     LABELS "${MODULE}")
 
@@ -260,10 +284,18 @@ set_tests_properties (${prefix}_can_print_that_can_not_difference_without_args_3
     LABELS "${MODULE}")
 
 add_test(
-    NAME ${prefix}_can_difference
+    NAME ${prefix}_can_difference_1
     COMMAND ${APPLICATION} - 1 2 3 / 2 3 5
 )
-set_tests_properties (${prefix}_can_difference PROPERTIES
+set_tests_properties (${prefix}_can_difference_1 PROPERTIES
+    PASS_REGULAR_EXPRESSION " 1"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_difference_2
+    COMMAND ${APPLICATION} - 1 2 3 / 2 3 5 s
+)
+set_tests_properties (${prefix}_can_difference_2 PROPERTIES
     PASS_REGULAR_EXPRESSION " 1"
     LABELS "${MODULE}")
 
