@@ -264,7 +264,7 @@ add_test(
     COMMAND ${APPLICATION} - 1 2 3 / 2 3 5
 )
 set_tests_properties (${prefix}_can_difference PROPERTIES
-    PASS_REGULAR_EXPRESSION " 1 5"
+    PASS_REGULAR_EXPRESSION " 1"
     LABELS "${MODULE}")
 
 add_test(
