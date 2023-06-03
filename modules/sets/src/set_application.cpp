@@ -30,8 +30,6 @@ std::string set_application::operator()(int argc, const char** argv) {
     }
 
     for (int arg_num = 1; arg_num < argc; ++arg_num) {
-        if (arg_num != 1)
-            message += " ";
         std::string arg(argv[arg_num]);
         if (arg == "s") {
             continue;
